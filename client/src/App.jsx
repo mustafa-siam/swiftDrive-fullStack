@@ -6,7 +6,7 @@ import { Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import Footer from './components/Footer';
 import CarDetails from './pages/CarDetails';
 import MyBookings from './pages/MyBookings';
-import Cars from './pages/cars';
+import Cars from './pages/Cars';
 import Layout from './pages/owner/Layout';
 import Addcar from './pages/owner/Addcar';
 import ManageCars from './pages/owner/ManageCars';
