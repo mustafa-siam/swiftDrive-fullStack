@@ -62,7 +62,6 @@ const NavBar = () => {
     </ul>
   </div>
   <div className="navbar-end gap-2">
-    <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
     <button onClick={() =>{user ? logOut() : setShowLogin(true)}} className="btn bg-primary text-white">{user ?  'LogOut' : 'LogIn'}</button>
 {showLogin && (
           <div className="modal modal-open" onClick={() => setShowLogin(false)}>

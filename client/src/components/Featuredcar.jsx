@@ -14,7 +14,7 @@ const Featuredcar = () => {
         initial={{y:40,opacity:0}}
         whileInView={{y:0,opacity:1}}
         transition={{duration:1,delay:0.5}}
-        className='space-y-10 max-w-6xl mx-auto p-2'>
+        className='space-y-10 max-w-6xl mx-auto p-2 '>
         <motion.div 
         initial={{y:40,opacity:0}}
         whileInView={{y:0,opacity:1}}
