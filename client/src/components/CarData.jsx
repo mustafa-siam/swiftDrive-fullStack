@@ -18,37 +18,28 @@ const CarData = ({car}) => {
       <h1 className='absolute flex items-center bg-black p-2 text-white rounded-full bottom-4 right-4'><FaDollarSign/>{car.pricePerDay}/day</h1>
   </figure>
   <div className="card-body">
-    <h2 className="card-title">{car.brand} {car.model}</h2>
-    <p>{car.category} {car.year}</p>
-    <div className="card-action flex justify-between text-[#4A5565] text-balance gap-6">
-        <div>
- <div className='flex items-center gap-1 pb-2'>
-        <MdOutlinePeople></MdOutlinePeople>
-        {car.seating_capacity} seat
-      </div>
-      <div className='flex items-center gap-1 pb-2'>
-        <FaCar></FaCar>
-        {
-            car.transmission
-        }
-      </div>
-        </div>
-     <div>
-<div className='flex items-center gap-1 pb-2'>
-        <FaGasPump></FaGasPump>
-        {
-            car.fuel_type
-        }
-      </div>
-      <div className='flex items-center gap-1 pb-2'>
-        <FaLocationArrow></FaLocationArrow>
-        {
-            car.location
-        }
-      </div>
-     </div>   
-    </div>
-  </div>
+                <h2 className="card-title text-sm md:text-lg">{car.brand} {car.model}</h2>
+                <p className='text-xs md:text-sm text-gray-500'>{car.category} {car.year}</p>
+
+                <div className="card-action flex flex-wrap justify-between text-gray-600 gap-4 mt-2">
+                    <div className='flex flex-col gap-1 w-1/2 sm:w-auto'>
+                        <div className='flex items-center gap-1 text-xs md:text-sm'>
+                            <MdOutlinePeople /> {car.seating_capacity} seat
+                        </div>
+                        <div className='flex items-center gap-1 text-xs md:text-sm'>
+                            <FaCar /> {car.transmission}
+                        </div>
+                    </div>
+                    <div className='flex flex-col gap-1 w-1/2 sm:w-auto'>
+                        <div className='flex items-center gap-1 text-xs md:text-sm'>
+                            <FaGasPump /> {car.fuel_type}
+                        </div>
+                        <div className='flex items-center gap-1 text-xs md:text-sm'>
+                            <FaLocationArrow /> {car.location}
+                        </div>
+                    </div>
+                </div>
+            </div>
 </div>
     );
 };
