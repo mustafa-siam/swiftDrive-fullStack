@@ -6,18 +6,23 @@ import { useNavigate } from 'react-router-dom';
 const CarData = ({car}) => {
     const navigate=useNavigate()
     return (
-        <div onClick={()=>navigate(`/car-details/${car._id}`)} className="card bg-base-100 shadow-sm hover:-translate-y-2 transition-all duration-500 cursor-pointer">
-  <figure className='relative'>
-    <img
-      src={car.image}
-      className='w-full h-64 '
-      alt="Shoes" />
-      {
-        car.isAvaliable && <p className='absolute top-4 left-4 bg-primary/90 text-white py-1 px-2.5 rounded-full'>Available Now </p>
-      }
-      <h1 className='absolute flex items-center bg-black p-2 text-white rounded-full bottom-4 right-4'><FaDollarSign/>{car.pricePerDay}/day</h1>
-  </figure>
-  <div className="card-body">
+        // 1. Add 'flex' and 'flex-col' to the main card div
+        <div 
+            onClick={()=>navigate(`/car-details/${car._id}`)} 
+            className="card bg-base-100 shadow-sm hover:-translate-y-2 transition-all duration-500 cursor-pointer flex flex-col h-full"
+        >
+            <figure className='relative'>
+                <img
+                    src={car.image}
+                    className='w-full h-64 ' 
+                    alt={`${car.brand} ${car.model}`} />
+                {
+                    car.isAvaliable && <p className='absolute top-4 left-4 bg-primary/90 text-white py-1 px-2.5 rounded-full'>Available Now </p>
+                }
+                <h1 className='absolute flex items-center bg-black p-2 text-white rounded-full bottom-4 right-4'><FaDollarSign/>{car.pricePerDay}/day</h1>
+            </figure>
+          
+            <div className="card-body flex-grow">
                 <h2 className="card-title text-sm md:text-lg">{car.brand} {car.model}</h2>
                 <p className='text-xs md:text-sm text-gray-500'>{car.category} {car.year}</p>
 
@@ -40,7 +45,7 @@ const CarData = ({car}) => {
                     </div>
                 </div>
             </div>
-</div>
+        </div>
     );
 };
 
