@@ -49,14 +49,19 @@ const Hero = () => {
                     </div>
                     <div className='flex flex-col items-start gap-2'>
                         <p>Pick-Up Date</p>
-                        <input type="date" {...register("pickupDate", { required: "Please select a pick-up date" })} className='px-1 text-sm text-gray-500'/>
+                        <input type="date" {...register("pickupDate", { required: "Please select a pick-up date" })}
+                         placeholder="dd/mm/yyyy"
+                        className='px-1 text-sm text-gray-500 placeholder-gray-400 appearance-none w-full'/>
                         {errors.pickupDate && (
               <p className="text-sm text-red-500">{errors.pickupDate.message}</p>
             )}
                     </div>
                     <div className='flex flex-col items-start gap-2'>
                         <p>Return Date</p>
-                        <input type="date" {...register("returnDate", { required: "Please select a return date" })} className='px-1 text-sm text-gray-500'/>
+                        <input type="date" {...register("returnDate", { required: "Please select a return date" })} 
+                         placeholder="dd/mm/yyyy"
+                      className="px-1 text-sm text-gray-500 placeholder-gray-400 appearance-none w-full"
+                        />
                         {errors.returnDate && (
               <p className="text-sm text-red-500">{errors.returnDate.message}</p>
             )}

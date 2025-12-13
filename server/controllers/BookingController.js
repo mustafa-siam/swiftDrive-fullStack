@@ -27,38 +27,26 @@ export const checkAvailabilityCar=async(req,res)=>{
     }
 }
 //creat booking 
-export const creatBooking = async (req, res) => {
-  try {
-    const { _id } = req.user;
-    const { car, pickupDate, returnDate } = req.body;
-
-    // Check availability
-    const isAvailable = await checkAvailability(car, pickupDate, returnDate);
-    if (!isAvailable) {
-      return res.json({ success: false, message: "Car is not available" });
-    }
-
-    const carData = await Car.findById(car);
-    const picked = new Date(pickupDate);
-    const returned = new Date(returnDate);
-    const noOfDays = Math.ceil((returned - picked) / (1000 * 60 * 60 * 24));
-    const price = noOfDays * carData.pricePerDay;
-    await Booking.create({
-      car,
-      owner: carData.owner,
-      user: _id,
-      pickupDate: picked,
-      returnDate: returned,
-      price,
-      location: carData.location,
-    });
-
-    res.json({ success: true, message: "Booking Created" });
-  } catch (error) {
-    console.log(error.message);
+export const creatBooking=async(req,res)=>{
+    try {
+        const {_id}=req.user
+        const {car,pickupDate,returnDate}=req.body;
+        const isAvailable=await checkAvailability(car,pickupDate,returnDate);
+        if(!isAvailable){
+            res.json({success:false,message:"car is not availabe"})
+        }
+        const carData=await Car.findById(car)
+        const picked=new Date(pickupDate)
+        const returned=new Date(returnDate)
+        const noOfDays=Math.ceil((returned-picked)/(1000*60*60*24))
+        const price=noOfDays*carData.pricePerDay
+        await Booking.create({car,owner:carData.owner,user:_id,pickupDate,returnDate,price,location: carData.location})
+        res.json({success:true,message:"Booking Created"})
+    } catch (error) {
+        console.log(error.message);
     res.json({ success: false, message: error.message });
-  }
-};
+    }
+}
 //get user booking
 export const getUserBookings=async(req,res)=>{
     try {

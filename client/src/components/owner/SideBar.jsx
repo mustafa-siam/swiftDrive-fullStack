@@ -32,7 +32,10 @@ const SideBar = () => {
     { path: '/owner/manage-bookings', label: 'Manage Bookings', icon: assets.listIcon,clrdicon:assets.listIconColored },
   ];
     return (
-        <div className='relative min-h-screen md:flex flex-col items-center pt-8 max-w-14 md:max-w-60 w-full border-r border-[#E2E8F0] text-sm'>
+        <div className='relative md:static left-0 min-h-screen
+  flex flex-col items-center pt-8 w-14 md:w-60
+  border-r border-[#E2E8F0] text-sm
+  bg-white'>
             <div className='group relative'>
                 <label htmlFor='image'>
                     <img src={img ? URL.createObjectURL(img):user?.image?user?.image : assets.upload_icon} alt="" className='h-10 md:h-30 w-10 md:w-30 rounded-full mx-auto'/>

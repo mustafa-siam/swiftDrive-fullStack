@@ -52,19 +52,31 @@ fetchDashboardData()
       {/* Dashboard cards */}
       <div className='grid grid-cols-2 md:grid-cols-4 gap-6 my-8'>
         {dashboardCards.map((card, idx) => (
-          <div
-            key={idx}
-            className='flex items-center justify-between gap-4 border border-[#DDE1EE] px-4 py-3 rounded-xl bg-white shadow-sm hover:shadow-md transition-all'
-          >
-            <div>
-              <h1 className='text-[#6B7280] text-sm md:text-base'>{card.title}</h1>
-              <p className='text-xl md:text-2xl font-medium'>{card.value}</p>
-            </div>
-            <div>
-              <img src={card.icon} alt="" className='bg-primary/10 p-3 rounded-full w-10 h-10' />
-            </div>
-          </div>
-        ))}
+  <div
+    key={idx}
+    className='flex flex-col items-center sm:flex-row sm:justify-between border border-[#DDE1EE] px-4 py-4 rounded-xl bg-white shadow-sm hover:shadow-md transition-all w-full'
+  >
+    {/* Left: Title + Value */}
+    <div className='flex flex-col items-center sm:items-start gap-1'>
+      <h1 className='text-[#6B7280] text-sm md:text-base text-center sm:text-left'>
+        {card.title}
+      </h1>
+      <p className='text-xl md:text-2xl font-medium text-center sm:text-left'>
+        {card.value}
+      </p>
+    </div>
+
+    {/* Right: Icon */}
+    <div className='bg-primary/10 rounded-full p-3 mt-3 sm:mt-0 flex-shrink-0'>
+      <img
+        src={card.icon}
+        alt={card.title}
+        className='w-8 h-8 sm:w-10 sm:h-10 object-contain block'
+      />
+    </div>
+  </div>
+))}
+
       </div>
 
       {/* Lower section */}

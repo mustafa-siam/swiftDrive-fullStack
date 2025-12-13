@@ -12,11 +12,17 @@ const Layout = () => {
         }
     },[isOwner])
     return (
-        <div className='flex flex-col'>
+        <div className='min-h-screen flex flex-col'>
         <NavbarOwner></NavbarOwner>
             <div className='flex'>
-                <SideBar></SideBar>
-                <Outlet></Outlet>
+                <div className='w-14 md:w-60 shrink-0'>
+<SideBar></SideBar>
+                </div>
+                
+                <div className='flex-1 min-w-0 p-4 overflow-x-hidden'>
+ <Outlet></Outlet>
+                </div>
+               
             </div>
         </div>
     );
